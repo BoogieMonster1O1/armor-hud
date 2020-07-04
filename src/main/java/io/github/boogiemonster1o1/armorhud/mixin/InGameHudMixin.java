@@ -39,10 +39,10 @@ public abstract class InGameHudMixin extends DrawableHelper {
             GlStateManager.blendFuncSeparate(770, 771, 1, 0);
             GuiLighting.method_2214();
 
-            for(int j = 0; j < 4; ++j) {
-                int k = window.getScaledWidth() / 2 - 90 - j * 20 + 2;
-                int l = 10;
-                this.renderArmorProper(j, k, l, tickDelta, playerEntity);
+            for(int j = 3; j >=0; --j) {
+                int k = (window.getScaledWidth() / 2 - 90 - j * 20 + 2) + 50;
+                int l = 5;
+                this.renderArmorProper(3 - j, k, l, tickDelta, playerEntity);
             }
 
             GuiLighting.method_2210();
@@ -51,24 +51,24 @@ public abstract class InGameHudMixin extends DrawableHelper {
         }
     }
 
-    private void renderArmorProper(int i, int j, int k, float f, PlayerEntity playerEntity) {
-        ItemStack itemStack = playerEntity.inventory.armor[i];
+    private void renderArmorProper(int index, int j, int k, float f, PlayerEntity playerEntity) {
+        ItemStack itemStack = playerEntity.inventory.armor[3-index];
         if (itemStack != null) {
             float g = (float)itemStack.field_8654 - f;
             if (g > 0.0F) {
                 GlStateManager.pushMatrix();
                 float h = 1.0F + g / 5.0F;
                 GlStateManager.translatef((float)(j + 8), (float)(k + 12), 0.0F);
-                GlStateManager.scalef(1.0F / h, (h + 1.0F) / 2.0F, 1.0F);
+                GlStateManager.scalef(1.5F / h, (h + 1.5F) / 2.0F, 1.5F);
                 GlStateManager.translatef((float)(-(j + 8)), (float)(-(k + 12)), 0.0F);
             }
 
-            this.itemRenderer.renderInGuiWithOverrides(itemStack, j, k);
+            this.itemRenderer.renderInGuiWithOverrides(itemStack, j + 60, k);
             if (g > 0.0F) {
                 GlStateManager.popMatrix();
             }
 
-            this.itemRenderer.method_3966(this.client.textRenderer, itemStack, j, k);
+            this.itemRenderer.method_3966(this.client.textRenderer, itemStack, j + 60, k);
         }
     }
 }
