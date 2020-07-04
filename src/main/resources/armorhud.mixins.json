@@ -4,6 +4,7 @@
   "package": "io.github.boogiemonster1o1.armorhud.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "InGameHudMixin"
   ],
   "client": [
   ],
