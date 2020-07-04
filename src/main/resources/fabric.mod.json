@@ -3,33 +3,30 @@
   "id": "modid",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Armor Hud",
+  "description": "Shows your armor in the hud",
   "authors": [
-    "Me!"
+    "BoogieMonster1O1"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "issues": "https://github.com/BoogieMonster1O1/armor-hud/issues",
+    "sources": "https://github.com/BoogieMonster1O1/armor-hud"
   },
 
-  "license": "CC0-1.0",
+  "license": "Apache-2.0",
   "icon": "assets/modid/icon.png",
 
-  "environment": "*",
+  "environment": "client",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "io.github.boogiemonster1o1.armorhud.ArmorHud"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "armorhud.mixins.json"
   ],
 
   "depends": {
-    "fabricloader": ">=0.7.4"
-  },
-  "suggests": {
-    "flamingo": "*"
+    "fabricloader": ">=0.8.2"
   }
 }
