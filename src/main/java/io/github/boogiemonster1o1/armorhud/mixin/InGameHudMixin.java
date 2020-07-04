@@ -40,8 +40,8 @@ public abstract class InGameHudMixin extends DrawableHelper {
             GuiLighting.method_2214();
 
             for(int j = 0; j < 4; ++j) {
-                int k = window.getScaledWidth() / 2 - 90 + j * 20 + 2;
-                int l = 16;
+                int k = window.getScaledWidth() / 2 - 90 - j * 20 + 2;
+                int l = 10;
                 this.renderArmorProper(j, k, l, tickDelta, playerEntity);
             }
 
@@ -71,42 +71,4 @@ public abstract class InGameHudMixin extends DrawableHelper {
             this.itemRenderer.method_3966(this.client.textRenderer, itemStack, j, k);
         }
     }
-
-//    @Inject(method="render",at=@At(value="TAIL"))
-//    private void renderArmor(float tickDelta,CallbackInfo ci){
-//        MinecraftClient h2104106cfe966ef = MinecraftClient.getInstance();
-//        h2104106cfe966ef.profiler.push("armorhud");
-//        GlStateManager.enableRescaleNormal();
-//        GlStateManager.clearColor();
-//        GlStateManager.blendFuncSeparate(770, 771, 1, 0);
-//        GuiLighting.method_2214();
-//        for (int i = 0; i < 4; i++) {
-//            int y = MinecraftClient.getInstance().height - 40 - i * 20;
-//            int x = MinecraftClient.getInstance().width / 2 + (10 * (3 - i) - 15) * 2 - 10;
-//            this.renderArmorProper(i, x,y, tickDelta, h2104106cfe966ef.player);
-//        }
-//        GuiLighting.method_2210();
-//        GlStateManager.disableRescaleNormal();
-//        GlStateManager.disableBlend();
-//        h2104106cfe966ef.profiler.pop();
-//    }
-//
-//    private void renderArmorProper(int slot, int x,int y, float tickDelta, PlayerEntity player){
-//        ItemStack armor = player.inventory.armor[slot];
-//        if (armor != null) {
-//            float frames = armor.field_8654 - tickDelta;
-//            if (frames > 0.0F) {
-//                GlStateManager.pushMatrix();
-//                float var8 = 1.0F + frames / 5.0F;
-//                GlStateManager.translatef((5 + 8), (y + 12), 0.0F);
-//                GlStateManager.scalef(1.0F / var8, (var8 + 1.0F) / 2.0F, 1.0F);
-//                GlStateManager.translatef(-(5 + 8), -(y + 12), 0.0F);
-//            }
-//            this.itemRenderer.renderInGuiWithOverrides(armor, 15, y);
-//            if (frames > 0.0F) {
-//                GlStateManager.popMatrix();
-//            }
-//            this.itemRenderer.renderGuiItemOverlay(MinecraftClient.getInstance().textRenderer, armor, x, y,null);
-//        }
-//    }
 }
